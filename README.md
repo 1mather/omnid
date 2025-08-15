@@ -1,33 +1,84 @@
-# 环境配置
-1. 安装 lerobot环境
-2. 重新安装 torch： 
-```
-pip install torch==2.6.0+cu118  torchvision==0.21.0+cu118  --index-url https://download.pytorch.org/whl/cu118
-pip install torchvision==0.21.0+cu118  --index-url https://download.pytorch.org/whl/cu118
-```
-3. 安装 DETR 环境
-https://github.com/fundamentalvision/Deformable-DETR
-需要注意cudatoolkit 版本要和cuda 版本匹配
-# 训练
-1. 参考./config/omnid/training_200k_01234_pretrain.json在对应目录下生成训练文件，如config/act/training_test.json
-2. 修改config 中"steps"，“type”，“input_features”等参数，通过“input_features”来控制训练、评测时使用的相机。
-3. 发起训练
-```
-python3 lerobot/scripts/train.py --config_path=/home/lei/code/lerobot/config/omnid/training_200k_01234_pretrain.json
+````markdown
+# Environment Setup & Training Guide
+
+## Installation & Setup
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/1mather/omnid.git
+cd lerobot
+````
+
+2. **Create a Python 3.10 virtual environment (recommended: Miniconda)**
+
+```bash
+conda create -y -n lerobot python=3.10
+conda activate lerobot
 ```
 
-coffee
-```
-python3 lerobot/scripts/train.py --config_path=/root/workspace/OmniD/config/vqbet/get_coffee_random_pos_100/training_200k_01234_pretrain.json 
+3. **Install ffmpeg if not already present**
+
+```bash
+conda install ffmpeg
 ```
 
-set_study_table
+4. **Install 🤗 LeRobot**
+
+```bash
+pip install --no-binary=av -e .
 ```
-python3 lerobot/scripts/train.py --config_path=/media/jerry/code/OmniD/config/vqbet/get_coffee_random_pos_100/training_200k_01234_pretrain.json 
+
+5. **Reinstall Torch with CUDA 11.8 support**
+
+```bash
+pip install torch==2.6.0+cu118 torchvision==0.21.0+cu118 --index-url https://download.pytorch.org/whl/cu118
+```
+
+6. **Install Deformable-DETR dependencies**
+   Follow the instructions at: [https://github.com/fundamentalvision/Deformable-DETR](https://github.com/fundamentalvision/Deformable-DETR)
+
+   > ⚠️ Ensure that your `cudatoolkit` version matches your local CUDA version.
+
+---
+
+## Training Instructions
+
+1. **Prepare a training config file**
+   Use `./config/omnid/training_200k_01234_pretrain.json` as a reference and create a new config file in the corresponding directory, e.g. `config/act/training_test.json`.
+
+2. **Edit the config parameters**
+
+   * `"steps"`: number of training steps
+   * `"type"`: task type
+   * `"input_features"`: select the cameras to use for training/evaluation
+
+3. **Start training**
+   **General command:**
+
+   ```bash
+   python3 lerobot/scripts/train.py --config_path=/path/to/config.json
+   ```
+
+### Example Tasks
+
+**Coffee**
+
+```bash
+python3 lerobot/scripts/train.py \
+    --config_path=/root/workspace/OmniD/config/vqbet/get_coffee_random_pos_100/training_200k_01234_pretrain.json
+```
+
+**Set Study Table**
+
+```bash
+python3 lerobot/scripts/train.py \
+    --config_path=/media/jerry/code/OmniD/config/vqbet/get_coffee_random_pos_100/training_200k_01234_pretrain.json
 ```
 
 
-ur_5e_singleArm-gripper-4cameras_2
-```
-python3 lerobot/scripts/train.py --config_path=/media/jerry/code/OmniD/config/dp/ur_5e_200/training_200k_01234_pretrain.json
-```
+
+### Dataset
+up comming soon!
+
+
+
