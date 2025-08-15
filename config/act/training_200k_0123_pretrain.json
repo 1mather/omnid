@@ -1,0 +1,37 @@
+{
+    "output_dir":"outputs/train/test_dp",
+    "steps":200000,
+    "dataset": {
+    "repo_id": "lerobot/select_fruit_none_distractor_v3_100"
+    },
+    "policy":{
+    "type": "act",
+    
+    "input_features": {
+        "observation.image_0": {
+            "type": "VISUAL",
+            "shape": [
+                3,
+                96,
+                96
+            ]
+        },
+       
+        "observation.state": {
+            "type": "STATE",
+            "shape": [
+                7
+            ]
+        }
+    },
+    "output_features": {
+        "action": {
+            "type": "ACTION",
+            "shape": [
+                2
+            ]
+        }
+    }
+    
+}
+}

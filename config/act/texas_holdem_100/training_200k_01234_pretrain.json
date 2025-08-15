@@ -1,0 +1,62 @@
+{
+    "output_dir":"/media/jerry/outputs/act/texas_holdem_100",
+    "steps":100000,
+    "dataset": {
+        "repo_id": "lerobot/texas_holdem_100",
+        "root": "/media/jerry/data/lerobot/texas_holdem_100"
+        },
+    "policy":{
+    "type": "act",
+    
+    "input_features": {
+        "observation.image_1": {
+            "type": "VISUAL",
+            "shape": [
+                3,
+                96,
+                96
+            ]
+        },
+        "observation.image_2": {
+            "type": "VISUAL",
+            "shape": [
+                3,
+                96,
+                96
+            ]
+        },
+        "observation.image_3": {
+            "type": "VISUAL",
+            "shape": [
+                3,
+                96,
+                96
+            ]
+        },
+        "observation.image_4": {
+            "type": "VISUAL",
+            "shape": [
+                3,
+                96,
+                96
+            ]
+        },
+       
+        "observation.state": {
+            "type": "STATE",
+            "shape": [
+                7
+            ]
+        }
+    },
+    "output_features": {
+        "action": {
+            "type": "ACTION",
+            "shape": [
+                7
+            ]
+        }
+    }
+    
+}
+}

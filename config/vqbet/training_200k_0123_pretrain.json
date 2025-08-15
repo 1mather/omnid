@@ -1,0 +1,83 @@
+{
+    "output_dir":"outputs/train/test_dp",
+    "steps":200000,
+    "dataset": {
+    "repo_id": "lerobot/select_fruit_none_distractor_v3_100"
+    },
+    "policy":{
+        "type": "vqbet",
+        "n_obs_steps": 5,
+        "normalization_mapping": {
+            "VISUAL": "IDENTITY",
+            "STATE": "MIN_MAX",
+            "ACTION": "MIN_MAX"
+        },
+        "input_features": {
+            "observation.image_0": {
+                "type": "VISUAL",
+                "shape": [
+                    3,
+                    480,
+                    480
+                ]
+            },
+            "observation.state": {
+                "type": "STATE",
+                "shape": [
+                    7
+                ]
+            }
+        },
+        "output_features": {
+            "action": {
+                "type": "ACTION",
+                "shape": [
+                    7
+                ]
+            }
+        },
+        "device": "cuda",
+        "use_amp": false,
+        "n_action_pred_token": 3,
+        "action_chunk_size": 5,
+        "vision_backbone": "resnet18",
+        "crop_shape": [
+            84,
+            84
+        ],
+        "crop_is_random": true,
+        "pretrained_backbone_weights": null,
+        "use_group_norm": true,
+        "spatial_softmax_num_keypoints": 32,
+        "n_vqvae_training_steps": 20000,
+        "vqvae_n_embed": 16,
+        "vqvae_embedding_dim": 256,
+        "vqvae_enc_hidden_dim": 128,
+        "gpt_block_size": 500,
+        "gpt_input_dim": 512,
+        "gpt_output_dim": 512,
+        "gpt_n_layer": 8,
+        "gpt_n_head": 8,
+        "gpt_hidden_dim": 512,
+        "dropout": 0.1,
+        "mlp_hidden_dim": 1024,
+        "offset_loss_weight": 10000.0,
+        "primary_code_loss_weight": 5.0,
+        "secondary_code_loss_weight": 0.5,
+        "bet_softmax_temperature": 0.1,
+        "sequentially_select": false,
+        "optimizer_lr": 0.0001,
+        "optimizer_betas": [
+            0.95,
+            0.999
+        ],
+        "optimizer_eps": 1e-08,
+        "optimizer_weight_decay": 1e-06,
+        "optimizer_vqvae_lr": 0.001,
+        "optimizer_vqvae_weight_decay": 0.0001,
+        "scheduler_warmup_steps": 500,
+        "input_camera": [
+            "observation.image_0"
+        ]
+    }
+}
