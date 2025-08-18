@@ -78,7 +78,7 @@ python3 lerobot/scripts/train.py \
 
 
 ### Dataset
-up comming soon!
+ comming soon!
 
 
 
