@@ -78,7 +78,10 @@ python3 lerobot/scripts/train.py \
 
 
 ### Dataset
- comming soon!
+https://huggingface.co/datasets/jiaruiguan/omnid_vlabench_dataset_v_0
+
+### Models
+https://huggingface.co/jiaruiguan/Omnid
 
 
 
