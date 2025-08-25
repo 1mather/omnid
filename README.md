@@ -80,7 +80,7 @@ python3 lerobot/scripts/train.py \
 ### Dataset
 https://huggingface.co/datasets/jiaruiguan/omnid_vlabench_dataset_v_0
 
-You can evaluate your models and create custom datasets using vla_evaluation. This repository provides six benchmark tasks for experimentation.
+You can evaluate your models and create custom datasets using vla_evaluation ：https://github.com/1mather/vla_evaluation.git. This repository provides six benchmark tasks for experimentation.
 
 ### Models
 https://huggingface.co/jiaruiguan/Omnid
