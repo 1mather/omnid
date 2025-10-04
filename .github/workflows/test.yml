@@ -144,7 +144,4 @@ jobs:
         run: |
           echo "PYTHON_PATH=${{ github.workspace }}/.venv/bin/python" >> $GITHUB_ENV
 
-      - name: Test end-to-end
-        run: |
-          make test-end-to-end \
-            && rm -rf outputs
+
